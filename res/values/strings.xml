@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright CMW Mobile.com, 2011. -->
+
+<resources>
+    <string name="app_name">SampleColorDialogPreference</string>
+</resources>
