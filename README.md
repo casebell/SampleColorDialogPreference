@@ -1,0 +1,4 @@
+SampleColorDialogPreference
+===========================
+
+SampleColorDialogPreference
