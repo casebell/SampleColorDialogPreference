@@ -60,11 +60,14 @@ public class SampleColorDialogPreferenceSettings extends
 				summary = preference.getSummary();
 				SpannableStringBuilder sb =
 						new SpannableStringBuilder (summary.toString());
-				sb.setSpan(
-						new BackgroundColorSpan( Integer.parseInt(stringValue) ), 
-						0, 
-						sb.length(),
-						Spanned.SPAN_INCLUSIVE_EXCLUSIVE );
+				
+				if( !stringValue.equals("") && stringValue != null ) {
+					sb.setSpan(
+							new BackgroundColorSpan( Integer.parseInt(stringValue) ), 
+							0, 
+							sb.length(),
+							Spanned.SPAN_INCLUSIVE_EXCLUSIVE );
+				}
 				
 				preference.setSummary(sb);
 				
@@ -72,9 +75,7 @@ public class SampleColorDialogPreferenceSettings extends
 					//	Html.fromHtml("<font color=\"#B0C4DE\">This is content</font>"));
 			}
 			else if ( key.equals("font")) {
-				TypefaceSpan tfaceSpan = new TypefaceSpan(stringValue);
 				Typeface tface = null;
-						
 				String fontPath = PreferenceManager
 									.getDefaultSharedPreferences(preference.getContext())
 									.getString(stringValue, null);
@@ -85,12 +86,14 @@ public class SampleColorDialogPreferenceSettings extends
 				
 				SpannableStringBuilder sb =
 						new SpannableStringBuilder (summary.toString());
-				sb.setSpan(
-						new CustomTypefaceSpan(stringValue, tface),
-						0, 
-						sb.length(),
-						Spanned.SPAN_INCLUSIVE_EXCLUSIVE );
 				
+				if( !stringValue.equals("") && stringValue != null ) { 
+					sb.setSpan(
+							new CustomTypefaceSpan(stringValue, tface),
+							0, 
+							sb.length(),
+							Spanned.SPAN_INCLUSIVE_EXCLUSIVE );
+				}
 				preference.setSummary(sb);
 			}
 			

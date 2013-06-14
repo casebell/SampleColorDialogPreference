@@ -265,8 +265,10 @@ public class ColorDialogPreference extends DialogPreference {
         LinearLayout layout = new LinearLayout(getContext());
         layout.setPadding(20, 20, 20, 20);
         layout.setOrientation(LinearLayout.VERTICAL);
-        String selectedColor = getSharedPreferences().getString( getKey(), "");
-        mInitialColor = Integer.parseInt(selectedColor);
+        String selectedColor = getSharedPreferences().getString( getKey(), "" );
+        if( !selectedColor.equals("") && selectedColor != null ){
+        	mInitialColor = Integer.parseInt(selectedColor);
+        }
         mCPView = new ColorPickerView(getContext(), l, mInitialColor);
 
         LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
